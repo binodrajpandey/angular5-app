@@ -2,9 +2,28 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2.
 
-## Development server
+## Development steps
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Install NODE
+2. verify using following commands.</br>
+`node -v`</br>
+`npm -v`</br>
+`npm i -g npm` if you want to update your npm version
+3. Install angular-cli using following command </br>
+`npm install -g @angular/cli`</br>
+If you want to uninstall your angular use following command.</br>
+`npm uninstall -g angular-cli`</br>
+`npm uninstall --save-dev angular-cli`</br>
+`npm cache clean`
+4. create project </br>
+`ng new myapp`
+5. go to project folder and run project.</br>
+`ng serve`
+6. Navigate to `http:\\localhost:4200`
+7. Install `Visual Studio Code` for IDE
+8. Create Component under `src/app` inside project folder
+ `ng g c student`
+
 
 ## Code scaffolding
 
