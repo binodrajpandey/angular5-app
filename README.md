@@ -21,10 +21,15 @@ If you want to uninstall your angular use following command.</br>
 `ng serve`
 6. Navigate to `http:\\localhost:4200`
 7. Install `Visual Studio Code` for IDE
-8. Create Component under `src/app` inside project folder
+
+
+## Routing
+In order for routing lets create different component using angular-cli under `src/app`.</br>
+
  `ng g c student`
-
-
+ `ng g c user`
+ `ng g c department`
+ `ng g c about`
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
