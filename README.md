@@ -21,9 +21,18 @@ If you want to uninstall your angular use following command.</br>
 `ng serve`
 6. Navigate to `http:\\localhost:4200`
 7. Install `Visual Studio Code` for IDE
-8. Create Component under `src/app` inside project folder
- `ng g c student`
 
+## Routing
+1. In order for routing lets create different component using angular-cli under `src/app`.</br>
+
+ `ng g c student`</br>
+ `ng g c user`</br>
+ `ng g c department`</br>
+ `ng g c about`</br>
+2. Now create `app.routing.ts` file under `src/app` folder and crete appRoutes and export it. </br>
+3. Now go to `app.module.ts` file and import routing.</br>
+4. Go to `index.html` file and add base element.</br>
+5. Go to `app.component.ts` and write `router-outlet` tag in template.
 
 ## Code scaffolding
 
