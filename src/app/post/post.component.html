@@ -1,3 +1,7 @@
-<p>
-  post works!
-</p>
+<hr/>
+<h3>Posts</h3>
+<div *ngFor="let post of posts">
+  <h3>{{post.title}}</h3>
+  <p>{{post.body}}</p>
+
+</div>
