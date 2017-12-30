@@ -30,31 +30,11 @@ If you want to uninstall your angular use following command.</br>
  `ng g c user`</br>
  `ng g c department`</br>
  `ng g c about`</br>
-2. Now create `app.routing.ts` file under `src/app` folder and write following codes </br>
-`import { Routes,RouterModule } from "@angular/router";`</br>
-`import { UserComponent } from "./user/user.component";</br>
-import { AboutComponent } from "./about/about.component";`</br>
-`import { DepartmentComponent } from "./department/department.component";`</br>
-`import { ModuleWithProviders } from "@angular/core";`</br>
-
-
-
-`const appRoutes:Routes=[
-    {
-        path:'',
-        component: UserComponent
-    },
-    {
-        path: 'about',
-        component: AboutComponent
-    },
-    {
-        path: 'department',
-        component: DepartmentComponent
-    }
-];`</br>
-`export const routing: ModuleWithProviders=RouterModule.forRoot(appRoutes);`
-3. Now go to app.module.ts file and import routing.
+2. Now create `app.routing.ts` file under `src/app` folder and crete appRoutes and export it. </br>
+3. Now go to `app.module.ts` file and import routing.
+4. Go to `index.html` file and add base element.
+5. Go to `app.component.ts` and write `router-outlet` tag in template.
+6.
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
