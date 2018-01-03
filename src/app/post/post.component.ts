@@ -8,19 +8,16 @@ import { PostService } from '../post.service';
 })
 export class PostComponent {
   posts: Post[];
-  constructor(private postService:PostService) {
-    this.postService.getPosts().subscribe(posts=>{
-      console.log(posts);
-      this.posts=posts;
-    });
-   }
-
+  constructor(private postService:PostService){
+    postService.getPosts().subscribe((response)=>{
+      console.log(response.json());
+      this.posts=response.json();
+       });
+  }
   
-
 }
 interface Post{
   id: number;
-  title:string;
-  body:string;
-  
-   }
+  title: string;
+  body: string;
+}

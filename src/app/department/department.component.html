@@ -1,3 +1,18 @@
-<p>
-  department works!
-</p>
+<div class="container">
+  <h2>Department Management Page</h2>
+  <button (click)="getDepartments()" class="btn btn-primary">Show Department</button>
+ 
+  <table class="table table-striped">
+    <thead>
+      <th>Department ID</th>
+      <th>Department Name</th>
+    </thead>
+    <tbody *ngFor="let department of departments">
+      <tr>
+        <td>{{department.departmentId}}</td>
+        <td>{{department.departmentName}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

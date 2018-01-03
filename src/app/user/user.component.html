@@ -1,0 +1,50 @@
+<div class="container">
+        <div style="text-align: center">
+         <h1>Welcome  {{name}} !</h1>
+         <img width="100" height="150" alt="Image Could not load" src="https://avatars3.githubusercontent.com/u/20903514?s=400&u=020a335766a61973cd5773f9ec1b9d98b72a3cfd&v=4">
+         </div>
+       <h2>My Short Information </h2>
+       <hr/>
+       <p><strong>Name:</strong> {{name}}</p>
+       <p><strong>Email:</strong>{{email}}</p>
+       <p><strong>Address:</strong> {{address.district}},{{address.country}}</p>
+       <h3><strong>Hobbies</strong></h3>
+       
+       <button class="btn btn-primary"  (click)="toggleHobby()">{{showHobbies?"Hide Hobby":"Show Hobby"}}</button>
+       
+       <div *ngIf="showHobbies">
+           <h3>Hobbies</h3>  
+       <ul>
+         <li *ngFor="let hobby of hobbies; let index=index">
+           {{hobby}} <button class="btn btn-link" (click)="deleteHobby(index)">Delete</button>
+         </li>
+       </ul>
+       </div>
+       <form>
+         <div class="form-group">
+         <label>Name:</label>
+         <input type="text" name="name" [(ngModel)]="name" class="form-control"/>
+       </div>
+       <div class="form-group">
+           <label>Email:</label>
+           <input type="text" name="email" [(ngModel)]="email" class="form-control"/>
+         </div>
+         <div class="form-group">
+             <label>Country:</label>
+             <input type="text" name="address.country" [(ngModel)]="address.country" class="form-control"/>
+           </div>
+           <div class="form-group">
+               <label>District:</label>
+               <input type="text" name="address.district" [(ngModel)]="address.district" class="form-control"/>
+             </div>
+       </form>
+       <h3>Add Hobby</h3>
+       <form (submit)="addHobby(hobby.value)">
+         <div class="form-group">
+       
+           <input type="text" class="form-control" #hobby>
+         </div>
+       </form>
+       
+       
+       </div>

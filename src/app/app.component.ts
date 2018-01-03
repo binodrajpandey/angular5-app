@@ -9,11 +9,6 @@ import { PostService } from './post.service';
 })
 export class AppComponent {
   
-  
- constructor(){
-   
-   
- }
- 
 }
+
 
