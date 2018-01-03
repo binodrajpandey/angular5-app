@@ -15,4 +15,11 @@
 
     </tbody>
   </table>
+<h1>Add Department</h1>
+<form>
+
+  <label>Department Name:</label>
+  <input type="text" [(ngModel)]="department.departmentName" name="department.departmentName"/>
+  <button type="submit" (click)="saveDepartment(department)" >save</button>
+</form>
 </div>

@@ -8,6 +8,10 @@ import { DepartmentService } from '../department.service';
   providers: [DepartmentService]
 })
 export class DepartmentComponent  {
+  department: Department={
+    departmentId: null,
+    departmentName: ''
+  }
   departments: Department[];
 
   constructor(private departmentService:DepartmentService) { }
@@ -16,6 +20,17 @@ export class DepartmentComponent  {
     this.departmentService.getDepartments().subscribe(response=>{
       console.log(response);
       this.departments=response;
+    })
+
+  }
+  saveDepartment(data){
+    this.departmentService.saveDepartment(data).subscribe(response=>{
+    console.log(response);
+     this.departments.push(response);
+     this.department={
+       departmentId:null,
+       departmentName:null
+     }
     })
 
   }
