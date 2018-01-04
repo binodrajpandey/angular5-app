@@ -7,7 +7,8 @@ import { DepartmentService } from '../department.service';
   styleUrls: ['./department.component.css'],
   providers: [DepartmentService]
 })
-export class DepartmentComponent  {
+export class DepartmentComponent {
+  
   department:Department={
     departmentId:null,
     departmentName:""
@@ -27,22 +28,20 @@ export class DepartmentComponent  {
   saveDepartment(data){
   this.departmentService.saveDepartment(data)
   .subscribe(res=>{
-    console.log('new department saved');
-  this.departments.push(res);
-  this.department={
-    departmentId:null,
-    departmentName: ""
-  }
+    this.getDepartments();
+    
 }
 );
+//location.reload();
   }
   editForm(department){
     this.department=department;
   }
   deleteDepartment(departmentId:number){
     this.departmentService.deleteDepartment(departmentId).subscribe(res=>{
-console.log(res);
+    this.getDepartments();
     })
+    //location.reload();
   }
 
 }
