@@ -8,9 +8,9 @@ import { DepartmentService } from '../department.service';
   providers: [DepartmentService]
 })
 export class DepartmentComponent  {
-  department: Department={
-    departmentId: null,
-    departmentName: ''
+  department:Department={
+    departmentId:null,
+    departmentName:""
   }
   departments: Department[];
 
@@ -23,16 +23,26 @@ export class DepartmentComponent  {
     })
 
   }
-  saveDepartment(data){
-    this.departmentService.saveDepartment(data).subscribe(response=>{
-    console.log(response);
-     this.departments.push(response);
-     this.department={
-       departmentId:null,
-       departmentName:null
-     }
-    })
 
+  saveDepartment(data){
+  this.departmentService.saveDepartment(data)
+  .subscribe(res=>{
+    console.log('new department saved');
+  this.departments.push(res);
+  this.department={
+    departmentId:null,
+    departmentName: ""
+  }
+}
+);
+  }
+  editForm(department){
+    this.department=department;
+  }
+  deleteDepartment(departmentId:number){
+    this.departmentService.deleteDepartment(departmentId).subscribe(res=>{
+console.log(res);
+    })
   }
 
 }

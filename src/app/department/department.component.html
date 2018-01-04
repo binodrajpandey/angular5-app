@@ -1,25 +1,28 @@
 <div class="container">
   <h2>Department Management Page</h2>
+  <form>
+    <label>Department Name:</label>
+    <input type="text" name="department.departmentName" [(ngModel)]="department.departmentName" />
+    <button (click)="saveDepartment(department)">Save</button>
+  </form>
   <button (click)="getDepartments()" class="btn btn-primary">Show Department</button>
  
   <table class="table table-striped">
     <thead>
       <th>Department ID</th>
       <th>Department Name</th>
+      <th>Action</th>
     </thead>
     <tbody *ngFor="let department of departments">
       <tr>
         <td>{{department.departmentId}}</td>
         <td>{{department.departmentName}}</td>
+        <td><button (click)="editForm(department)">Edit</button></td>
+        <td><button (click)="deleteDepartment(department.departmentId)">Delete</button></td>
       </tr>
 
     </tbody>
   </table>
-<h1>Add Department</h1>
-<form>
 
-  <label>Department Name:</label>
-  <input type="text" [(ngModel)]="department.departmentName" name="department.departmentName"/>
-  <button type="submit" (click)="saveDepartment(department)" >save</button>
-</form>
+
 </div>
