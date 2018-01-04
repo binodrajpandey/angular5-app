@@ -28,11 +28,11 @@ export class DepartmentComponent {
   saveDepartment(data){
   this.departmentService.saveDepartment(data)
   .subscribe(res=>{
-    this.getDepartments();
+   // this.getDepartments();
     
 }
 );
-//location.reload();
+location.reload();
   }
   editForm(department){
     this.department=department;
