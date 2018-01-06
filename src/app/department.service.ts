@@ -15,7 +15,7 @@ export class DepartmentService {
 
   saveDepartment(department:any){
     var body=JSON.stringify(department);
-    const headers=new Headers();
+    const headers=new Headers({'Authorization':'Bearer'+Cookie.get('access_token')});
     headers.append('Content-Type','application/json');
     const options=new RequestOptions({headers:headers});
   return  this.http.post('http://localhost:8086/departments',body,options)
@@ -23,8 +23,11 @@ export class DepartmentService {
   }
 
   deleteDepartment(departmentId){
+    const headers=new Headers({'Authorization':'Bearer'+Cookie.get('access_token')});
+    headers.append('Content-Type','application/json');
+    const options=new RequestOptions({headers:headers,params:{departmentId:departmentId}});
    return this.http.delete('http://localhost:8086/departments',
-    {params: {departmentId: departmentId}})
+    options)
     .map(res=>res.text());
   }
   
