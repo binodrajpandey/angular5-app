@@ -31,9 +31,7 @@ export class AppService {
 
 }
 saveToken(token){
-  console.log('printing token'+token);
-  console.log('saving access_token in cookie which we found from the server is'+token.access_token);
-  var expireDate=new Date().getTime()+token.expires_in;
+    var expireDate=new Date().getTime()+token.expires_in;
   Cookie.set("access_token",token.access_token,expireDate);
   console.log('token saved to cookies'+Cookie.get('access_token'));
   this.router.navigate(['/']);
@@ -45,8 +43,7 @@ checkCredential(){
   }
 }
 logout(){
-  alert('logout')
-  Cookie.delete('access_token');
+   Cookie.delete('access_token');
   this.router.navigate(['/']);
 }
 

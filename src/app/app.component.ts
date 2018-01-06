@@ -10,11 +10,9 @@ import { Cookie } from 'ng2-cookies';
   providers: [AppService]
 })
 export class AppComponent {
-  showForm:boolean=false;
+ 
   isLoggedIn: boolean=false;
-  username: string='';
-  password: string=''
-  constructor(private appService:AppService){
+   constructor(private appService:AppService){
    if( Cookie.check("access_token")){
      this.isLoggedIn=true;
    }
@@ -23,15 +21,8 @@ export class AppComponent {
        this.appService.logout();
        location.reload();
   }
-  login(username,password){
-    
-this.appService.getAccessToken(username,password).subscribe(res=>{
-  location.reload();
-})
-  }
-  showLoginForm(){
-    this.showForm=true;
-  }
+ 
+  
 }
 
 

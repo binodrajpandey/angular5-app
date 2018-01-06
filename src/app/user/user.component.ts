@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
+import { Cookie } from 'ng2-cookies';
 
 @Component({
   selector: 'app-user',
@@ -7,6 +8,7 @@ import { AppService } from '../app.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent{
+  loggedIn:boolean =false;
   name:string;
   email:string;
   address:object;
@@ -21,7 +23,9 @@ export class UserComponent{
    };
    this.hobbies=['chess','football','cricket','programming'];
    this.showHobbies=false;
-  
+  if(Cookie.check("access_token")){
+    this.loggedIn=true;
+  }
  }
  toggleHobby(){
    if(this.showHobbies==true){
@@ -41,7 +45,7 @@ this.hobbies.push(hobby);
  login(username,password){
    alert(username+''+password);
    this.appService.getAccessToken(username,password).subscribe(res=>{
-     alert('login successful');
+    this.loggedIn=true;
      location.reload();
    })
  }
