@@ -1,12 +1,13 @@
 <div class="container">
   <h2>Department Management Page</h2>
   <form>
+    
     <label>Department Name:</label>
-    <input type="text" name="department.departmentName" [(ngModel)]="department.departmentName" />
-    <button (click)="saveDepartment(department)">Save</button>
+    <input type="text" name="department.departmentName" [(ngModel)]="department.departmentName" style="height: 32px" />
+    <button (click)="saveDepartment(department)" class="btn btn-success" style="width: 100px; margin-left: 20px">Save</button>
   </form>
   <button (click)="getDepartments()" class="btn btn-primary">Show Department</button>
- 
+ <h5 style="color: green">{{successMessage}}</h5>
   <table class="table table-striped">
     <thead>
       <th>Department ID</th>
@@ -17,12 +18,13 @@
       <tr>
         <td>{{department.departmentId}}</td>
         <td>{{department.departmentName}}</td>
-        <td><button (click)="editForm(department)">Edit</button></td>
-        <td><button (click)="deleteDepartment(department.departmentId)">Delete</button></td>
+        <td><button (click)="editForm(department)" class="btn btn-warning">Edit</button>
+          <button (click)="deleteDepartment(department.departmentId)" class="btn btn-danger">Delete</button>
+        </td>
       </tr>
 
     </tbody>
   </table>
 
-
+  
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-user',
@@ -11,7 +12,7 @@ export class UserComponent{
   address:object;
   hobbies: string[];
   showHobbies: boolean;
-  constructor(){
+  constructor(private appService:AppService){
    this.name='Binod';
    this.email='binodrajpandey@ioe.edu.np';
    this.address={
@@ -36,6 +37,13 @@ this.hobbies.push(hobby);
  }
  deleteHobby(index){
    this.hobbies.splice(index,1); 
+ }
+ login(username,password){
+   alert(username+''+password);
+   this.appService.getAccessToken(username,password).subscribe(res=>{
+     alert('login successful');
+     location.reload();
+   })
  }
 
 }

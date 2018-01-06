@@ -16,6 +16,10 @@
         <li><a routerLink="/post">Post</a></li>
         <li><a routerLink="/student">Student</a></li>
         <li><a routerLink="/department">Department</a></li>
+         <li *ngIf="isLoggedIn;else logout"><a (click)="logOut()">Log Out</a></li>
+        <ng-template #logout >
+            <li><a routerLink="/login">Log In </a></li>
+        </ng-template>
       </ul>
     </div>
   </nav>

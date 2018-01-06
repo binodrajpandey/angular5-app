@@ -19,11 +19,11 @@ export class DepartmentService {
   return  this.http.post('http://localhost:8086/departments',body,options)
   .map(res=>res.json());
   }
-deleteDepartment(departmentId){
-    return this.http.delete('http://localhost:8086/departments',{params:{departmentId:departmentId}})
-    .map(res=>{
-return res.text();
-  });
-}
+
+  deleteDepartment(departmentId){
+   return this.http.delete('http://localhost:8086/departments',
+    {params: {departmentId: departmentId}})
+    .map(res=>res.text());
+  }
   
 }
