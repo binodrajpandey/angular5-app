@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http,RequestOptions,Headers } from '@angular/http';
+import { Cookie } from 'ng2-cookies';
 
 @Injectable()
 export class DepartmentService {
 
   constructor(private http:Http) { }
   getDepartments(){
-    
-  return this.http.get('http://localhost:8086/departments')
+    var headers=new Headers({'Content-Type':'application/json','Authorization':'Bearer '+Cookie.get('access_token')});
+    var options=new RequestOptions({headers:headers})
+    return this.http.get('http://localhost:8086/departments',options)
    .map(response=>response.json())
   }
 
