@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentService } from '../department.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.css'],
-  providers: [DepartmentService]
+  providers: [DepartmentService,AppService]
 })
 export class DepartmentComponent  {
   successMessage: string="";
@@ -15,7 +16,9 @@ export class DepartmentComponent  {
   }
   departments: Department[];
 
-  constructor(private departmentService:DepartmentService) { }
+  constructor(private departmentService:DepartmentService,private appService:AppService) {
+    this.appService.checkCredential();//
+   }
 
   getDepartments(){
     this.departmentService.getDepartments().subscribe(response=>{
@@ -32,8 +35,8 @@ export class DepartmentComponent  {
     departmentId:null,
     departmentName: ""
   }
-  //this.getDepartments();
-location.reload();
+  this.getDepartments();
+//location.reload();
 }
 );
   }

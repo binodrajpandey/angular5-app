@@ -18,8 +18,8 @@
       <tr>
         <td>{{department.departmentId}}</td>
         <td>{{department.departmentName}}</td>
-        <td><button (click)="editForm(department)" class="btn btn-warning">Edit</button>
-          <button (click)="deleteDepartment(department.departmentId)" class="btn btn-danger">Delete</button>
+        <td><button (click)="editForm(department)" class="btn btn-link"><img height="20" width="20" src="../../assets/edit.png"></button>
+          <a (click)="deleteDepartment(department.departmentId)" class="btn btn-link"><img height="20" width="20" src="../../assets/delete.jpg"/></a>
         </td>
       </tr>
 

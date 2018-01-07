@@ -25,6 +25,8 @@ export class UserComponent{
    this.showHobbies=false;
   if(Cookie.check("access_token")){
     this.loggedIn=true;
+  } else{
+    this.loggedIn=false;
   }
  }
  toggleHobby(){
@@ -43,8 +45,7 @@ this.hobbies.push(hobby);
    this.hobbies.splice(index,1); 
  }
  login(username,password){
-   alert(username+''+password);
-   this.appService.getAccessToken(username,password).subscribe(res=>{
+    this.appService.getAccessToken(username,password).subscribe(res=>{
     this.loggedIn=true;
      location.reload();
    })

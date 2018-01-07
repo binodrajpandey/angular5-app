@@ -13,6 +13,7 @@ export class AppComponent {
  
   isLoggedIn: boolean=false;
    constructor(private appService:AppService){
+     this.appService.checkCredential();
    if( Cookie.check("access_token")){
      this.isLoggedIn=true;
    }

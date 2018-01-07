@@ -38,8 +38,9 @@ saveToken(token){
 
 }
 checkCredential(){
-  if(Cookie.check('access_token')){
+  if(!Cookie.check('access_token')){
     this.router.navigate(['/']);
+    
   }
 }
 logout(){
